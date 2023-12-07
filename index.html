@@ -33,14 +33,14 @@
       <div style="text-align: center">
         <img src="img/research_overview.jpg" width="800">
       </div>
-      
+
       <h4><font color="blue">音声サンプル</a></font></h4>
 
       <hr color="#000000">      
 
       <h4>発話音声</h4>
 
-        英語話者音声(clean)<br>
+        英語話者音声 clean (LibriTTS clean)<br>
         
         <!-- 女性英語話者(LibriTTS clean) -->
         <table>
@@ -63,12 +63,12 @@
         <!-- 男性英語話者音声(LibriTTS clean) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/utterance/00_original/ltclean2.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltclean2_generated.wav"/></audio></td>
@@ -81,12 +81,12 @@
         <!-- 男性英語話者音声(LibriTTS clean) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/utterance/00_original/ltclean3.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltclean3_generated.wav"/></audio></td>
@@ -96,7 +96,7 @@
         </tbody>
         </table>
 
-        英語話者音声(noisy)<br>
+        英語話者音声 noisy (LibriTTS other)<br>
 
         <!-- 女性英語話者音声(LibriTTS other) -->
         <table>
@@ -119,12 +119,12 @@
         <!-- 女性英語話者音声(LibriTTS other) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/utterance/00_original/ltother2.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltother2_generated.wav"/></audio></td>
@@ -137,12 +137,12 @@
         <!-- 男性英語話者音声(LibriTTS other) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/utterance/00_original/ltother3.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltother3_generated.wav"/></audio></td>
@@ -152,7 +152,7 @@
         </tbody>
         </table>
 
-        日本語話者音声<br>
+        日本語話者音声 (JVS)<br>
 
         <!-- 女性日本語話者音声(jvs004) -->
         <table>
@@ -175,12 +175,12 @@
         <!-- 男性日本語話者音声(jvs001) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/utterance/00_original/jvs001_BASIC5000_0025.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/utterance/01_bigvgan/BASIC5000_0025_generated.wav"/></audio></td>
@@ -193,6 +193,8 @@
       <hr color="#000000">
 
       <h4>歌声音声</h4>
+
+        女性歌声音声 (きりたん)<br>
 
         <!-- 女性歌声音声(kiritan) -->
         <table>
@@ -215,12 +217,12 @@
         <!-- 女性歌声音声(kiritan) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/30-01.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/30-01_generated.wav"/></audio></td>
@@ -230,15 +232,17 @@
         </tbody>
         </table>
         
+        女性歌声音声 (波音リツ)<br>
+
         <!-- 女性歌声音声(namine) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/namine_ritsu_BC_seg20_f1.00.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/namine_ritsu_BC_seg20_f1.00_generated.wav"/></audio></td>
@@ -248,15 +252,29 @@
         </tbody>
         </table>
 
-        <!-- 女性歌声音声(breathy) -->
+        歌声合成音声 (初音ミク)<br>
         <table>
         <tbody>
         <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/kirakiraboshi_miku_C3.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/kirakiraboshi_miku_C3_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/kirakiraboshi_miku_C3.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/kirakiraboshi_miku_C3.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        女性歌声音声 (Annotated-VocalSet)<br>
+
+        <!-- 女性歌声音声(breathy) -->
+        <table>
+        <tbody>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/f1_arpeggios_breathy_a.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/f1_arpeggios_breathy_a_generated.wav"/></audio></td>
@@ -269,12 +287,12 @@
         <!-- 女性歌声音声(vibrato) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/f1_arpeggios_vibrato_a.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/f1_arpeggios_vibrato_a_generated.wav"/></audio></td>
@@ -284,15 +302,17 @@
         </tbody>
         </table>
         
+        男性歌声音声 (Annotated-VocalSet)<br>
+
         <!-- 男性歌声音声(breathy) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/m2_arpeggios_breathy_a.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/m2_arpeggios_breathy_a_generated.wav"/></audio></td>
@@ -305,12 +325,12 @@
         <!-- 男性歌声音声(vibrato) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/m2_arpeggios_vibrato_a.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/m2_arpeggios_vibrato_a_generated.wav"/></audio></td>
@@ -319,16 +339,18 @@
         </tr>
         </tbody>
         </table>
+
+        女性外国語歌声音声<br>
         
         <!-- 女性歌声音声(foreign language) -->
         <table>
         <tbody>
-        <tr>
+        <!-- <tr>
         <td>Original</td>
         <td>BigVGAN</td>
         <td>Harmonic-Net+</td>
         <td>SiFi-GAN</td>
-        </tr>
+        </tr> -->
         <tr>
         <td><audio controls="" ><source src="wav/singing/00_original/vocal1.wav"/></audio></td>
         <td><audio controls="" ><source src="wav/singing/01_bigvgan/vocal1_generated.wav"/></audio></td>
@@ -341,6 +363,53 @@
       <hr color="#000000">
       
       <h4>その他(環境音・楽器など)</h4>
+
+        <!-- dog bark -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original<br>犬の鳴き声</td>
+        <td>BigVGAN<br></td>
+        <td>Harmonic-Net+<br></td>
+        <td>SiFi-GAN<br></td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/etc/00_original/1-32318-A-0.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/01_bigvgan/1-32318-A-0_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/02_harmonicnet/1-32318-A-0.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/03_sifigan/1-32318-A-0.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- たき火 -->
+        <table>
+        たき火<br>
+        <tbody>
+        <tr>
+        <td><audio controls="" ><source src="wav/etc/00_original/1-7057-A-12.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/01_bigvgan/1-7057-A-12_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/02_harmonicnet/1-7057-A-12.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/03_sifigan/1-7057-A-12.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- コオロギ -->
+        <table>
+        コオロギ<br>
+        <tbody>
+        <tr>
+        <td><audio controls="" ><source src="wav/etc/00_original/1-9841-A-13.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/01_bigvgan/1-9841-A-13_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/02_harmonicnet/1-9841-A-13.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/etc/03_sifigan/1-9841-A-13.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        
+        
         
         
 
