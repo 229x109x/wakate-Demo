@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>学習範囲外データに頑健なF0高調波入力型ニューラル波形生成モデルの検討 ～様々な波形サンプルを合成可能なゼロショット合成～</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <br>
+      
+      <h2><font color="#FF1493">学習範囲外データに頑健なF0高調波入力型ニューラル波形生成モデルの検討</br>
+        ～様々な波形サンプルを合成可能なゼロショット合成～</font></h2>
+
+        ☆清水 聡太(神戸大/NICT)/岡本 拓磨(NICT)/高島 遼一(神戸大)/大谷 大和(NICT)/滝口 哲也(神戸大)/戸田 智基(名大/NICT)/河井 恒(NICT)
+</br></br>
+
+      <h4>研究概要</h4>
+      
+      ◆ 近年、音響特徴量から音声波形を生成するニューラル波形生成モデルの研究が進み、高品質な音声合成が可能に</br>
+      ◆ 一方、学習範囲外データ(未知話者・未知言語・未知の録音環境・歌声・楽器音など)の生成やピッチ(基本周波数：F0)の制御性能に課題</br>
+      ◆ F0高調波入力型ニューラル波形生成モデルを高品質な大規模音声データセットLibriTTS-R [Koizumi+ 2023]で学習し、学習範囲外データに対する頑健性を先行研究（BigVGAN [Lee+ 2023]）と比較</br>
+      
+      <hr color="#13A9B8">
+      
+      <div style="text-align: center">
+        <img src="img/research_overview.jpg" width="800">
+      </div>
+      
+      <h4><font color="blue">音声サンプル</a></font></h4>
+
+      <hr color="#000000">      
+
+      <h4>発話音声</h4>
+
+        英語話者音声(clean)<br>
+        
+        <!-- 女性英語話者(LibriTTS clean) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+	<td>Harmonic-Net+</td>
+	<td>SiFi-GAN</td>
+        </tr>
+        <tr>
+	<td><audio controls="" ><source src="wav/utterance/00_original/ltclean1.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltclean1_generated.wav"/></audio></td>
+	<td><audio controls="" ><source src="wav/utterance/02_harmonicnet/ltclean1.wav"/></audio></td>
+	<td><audio controls="" ><source src="wav/utterance/03_sifigan/ltclean1.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+	
+        <!-- 男性英語話者音声(LibriTTS clean) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/ltclean2.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltclean2_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/ltclean2.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/ltclean2.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- 男性英語話者音声(LibriTTS clean) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/ltclean3.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltclean3_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/ltclean3.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/ltclean3.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        英語話者音声(noisy)<br>
+
+        <!-- 女性英語話者音声(LibriTTS other) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/ltother1.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltother1_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/ltother1.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/ltother1.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- 女性英語話者音声(LibriTTS other) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/ltother2.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltother2_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/ltother2.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/ltother2.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- 男性英語話者音声(LibriTTS other) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/ltother3.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/ltother3_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/ltother3.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/ltother3.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        日本語話者音声<br>
+
+        <!-- 女性日本語話者音声(jvs004) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/jvs004_BASIC5000_0074.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/BASIC5000_0074_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/jvs004_BASIC5000_0074.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/jvs004_BASIC5000_0074.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- 男性日本語話者音声(jvs001) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/utterance/00_original/jvs001_BASIC5000_0025.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/01_bigvgan/BASIC5000_0025_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/02_harmonicnet/jvs001_BASIC5000_0025.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/utterance/03_sifigan/jvs001_BASIC5000_0025.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+      <hr color="#000000">
+
+      <h4>歌声音声</h4>
+
+        <!-- 女性歌声音声(kiritan) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/05-01.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/05-01_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/05-01.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/05-01.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <!-- 女性歌声音声(kiritan) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/30-01.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/30-01_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/30-01.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/30-01.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <!-- 女性歌声音声(namine) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/namine_ritsu_BC_seg20_f1.00.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/namine_ritsu_BC_seg20_f1.00_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/namine_ritsu_BC_seg20_f1.00.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/namine_ritsu_BC_seg20_f1.00.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <!-- 女性歌声音声(breathy) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/f1_arpeggios_breathy_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/f1_arpeggios_breathy_a_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/f1_arpeggios_breathy_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/f1_arpeggios_breathy_a.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <!-- 女性歌声音声(vibrato) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/f1_arpeggios_vibrato_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/f1_arpeggios_vibrato_a_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/f1_arpeggios_vibrato_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/f1_arpeggios_vibrato_a.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <!-- 男性歌声音声(breathy) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/m2_arpeggios_breathy_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/m2_arpeggios_breathy_a_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/m2_arpeggios_breathy_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/m2_arpeggios_breathy_a.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <!-- 男性歌声音声(vibrato) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/m2_arpeggios_vibrato_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/m2_arpeggios_vibrato_a_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/m2_arpeggios_vibrato_a.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/m2_arpeggios_vibrato_a.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <!-- 女性歌声音声(foreign language) -->
+        <table>
+        <tbody>
+        <tr>
+        <td>Original</td>
+        <td>BigVGAN</td>
+        <td>Harmonic-Net+</td>
+        <td>SiFi-GAN</td>
+        </tr>
+        <tr>
+        <td><audio controls="" ><source src="wav/singing/00_original/vocal1.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/01_bigvgan/vocal1_generated.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/02_harmonicnet/vocal1.wav"/></audio></td>
+        <td><audio controls="" ><source src="wav/singing/03_sifigan/vocal1.wav"/></audio></td>
+        </tr>
+        </tbody>
+        </table>
+
+      <hr color="#000000">
+      
+      <h4>その他(環境音・楽器・音楽など)</h4>
+        
+        
+
+	<br>
+
+    </div>
+
+  </body>
+</html>
